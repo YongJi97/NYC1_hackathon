@@ -1,22 +1,39 @@
-# Code Nation Hackathon: README Template
+# nodeWebsiteTemplate
+A NodeJS app template useful to build simple websites
 
-Edit the README to answer the following questions before you submit your project.
+This little project is intended to help node js beginners to build their 
+websites with an express api in charge of serving the pages and also provide
+the needed configuration to work with the [EcmaScript 6 features] (http://es6-features.org/#Constants).
 
-### Your Project Members
-Earl Smith, Upoma Bhuiyan, YongJi Chen, Darren Blair
+TDD is a must today and many folks like me are trying to find a complete and simple tool to use this
+approach, this project is configured with [tape](https://github.com/substack/tape) and includes an 
+example.
 
-### What is the name of your project?    
+This kind of template should not be used to big apps, in that case you 
+should use a complete framework like [React.js](https://facebook.github.io/react/) and even simplier, 
+a great tool like [Create react app](https://github.com/facebookincubator/create-react-app)
 
-### What does this project do?
+---
 
-### Who did you design this project for?
-This website is for everyone. This is a great resource for anyone stressed out by COVID-19. 
-### What was your inspiration for this project?
+##How to work?
+* `git clone https://github.com/josorioromero/nodeWebsiteTemplate.git`
+* go to the folder
+* `npm install`
+* `npm run dev` to start the development site
+* `npm run test` to run your tests
+* `npm start` to build a production `dist` folder transpiled to `ES5` with [Babel](https://babeljs.io/) and start the production server
 
-### What challenges did you run into?
+---
 
-### What accomplishments are you most proud of?
+##How to contribute?
+* Open a new issue
+* Create a new branch for your work
+* `Commit` and `push` your branch
+* Open a new pull request
+* We'll merge your changes if needed
 
-### If you had more time, what features would you add to this project?
+---
 
-### What did your team learn?
+Feel free to clone or fork this repo and contribute to make it better or use it for your personal projects.
+
+H4pp1 c0d1ng
