@@ -1,12 +1,12 @@
 const express = require('express');
 const router = express.Router();
 
-// /about page
+// /latest page
 router
-.get('/about', function (req, res, next) {
-  res.render('about', 
+.get('/latest', function (req, res, next) {
+  res.render('latest', 
   { 
-    title: 'About'
+    title: 'Latest'
   });
 })
 
