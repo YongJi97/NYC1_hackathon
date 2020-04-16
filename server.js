@@ -3,6 +3,8 @@ var express = require('express');
 var logger = require('morgan');
 var app = express();
 var fs = require("fs");
+var axios = require('axios');
+var cheerio = require('cheerio');
 
 // Load in config data stuff and pass to app locals 
 var config = require('./config');
@@ -34,3 +36,21 @@ fs.readdirSync(route_path).forEach( function(file) {
 var port = process.env.PORT ||  3000
 app.listen(port);
 console.log(`### Server listening on port ${port}`);
+
+
+
+async function scrapeRealtor() {
+    const html = await axios.get('https://ncov2019.live/data');
+    const $ = await cheerio.load(html.data);
+    let data = [];
+  
+    $('p').each((i, elem) => {
+      if (i <= 3) {
+        data.push({
+          title: $(elem).text()
+        })
+      }
+    });
+  
+    console.log(data);
+  }
