@@ -3,7 +3,10 @@
 Edit the README to answer the following questions before you submit your project.
 
 ### Your Project Members
-Earl Smith, Upoma Bhuiyan, YongJi Chen, Darren Blair
+### Earl Smith
+### Upoma Bhuiyan
+### YongJi Chen
+### Darren Blair
 
 ### What is the name of your project?    
 
