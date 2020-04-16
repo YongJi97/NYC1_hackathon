@@ -1,41 +1,22 @@
 {
-  "name": "nodeApp",
+  "name": "nodejs-boilerplate",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Simple skeleton / boilerplate Node.js express app",
+  "main": "server.js",
   "scripts": {
-    "dev": "nodemon --exec babel-node src/index.js",
-    "prestart": "babel src --out-dir dist && cp -r src/html dist/html",
-    "start": "node dist/index.js",
-    "test": "node -r babel-register tests/*.js"
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MM1323/NYC1_hackathon"
+    "url": "https://github.com/benc-uk/nodejs-boilerplate.git"
   },
-  "keywords": [
-    "node",
-    "website",
-    "babel",
-    "express",
-    "templates"
-  ],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/MM1323/NYC1_hackathon/issues"
-  },
-  "homepage": "https://github.com/MM1323/NYC1_hackathon#readme",
-  "devDependencies": {
-    "babel-cli": "^6.18.0",
-    "babel-preset-es2015": "^6.18.0",
-    "babel-register": "^6.18.0",
-    "express": "^4.14.0",
-    "nodemon": "^1.11.0",
-    "tape": "^4.6.2"
-  },
+  "author": "Ben Coleman",
+  "license": "Apache-2.0",
   "dependencies": {
-    "axios": "^0.19.2",
-    "cheerio": "^1.0.0-rc.3"
+    "dotenv": "^4.0.0",
+    "ejs": "^2.5.7",
+    "express": "^4.16.1",
+    "morgan": "^1.9.0"
   }
 }
