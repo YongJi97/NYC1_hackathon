@@ -1,13 +1,28 @@
 let cheerio = require('cheerio');
 let axios = require('axios');
-
+// require('../public/js/site.js')
 const express = require('express');
 const router = express.Router();
 let app = express();
+var fs = require('fs');
+var latestTweets = require('latest-tweets')
+var scrapeTwitter = require('scrape-twitter')
 
 let stats = {};
 
 scrapeRealtor();
+
+let aspTweets = [];
+let trumpTweets = [];
+
+latestTweets('NYCASP', function (err, tweets) {
+  aspTweets = tweets
+})
+
+latestTweets('realDonaldTrump', function (err, tweets) {
+  trumpTweets = tweets
+  // console.log(trumpTweets.length)
+})
 
 // /latest page
 router
@@ -15,9 +30,12 @@ router
   res.render('latest', 
   { 
     title: 'Latest',
-    data : stats
+    data : stats,
+    asp : aspTweets[0],
+    trump : trumpTweets
   });
 })
+
 
 
 async function scrapeRealtor() {
@@ -46,9 +64,13 @@ async function scrapeRealtor() {
     }
   }
 
-  console.log(stats);
+  // console.log(stats);
 }
+// const listener = server.listen(process.env.PORT, function() {
+//   console.log('Your app is listening on port ' + listener.address().port);
+// });
 
 
 module.exports = router;
+
 
