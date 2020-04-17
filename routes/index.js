@@ -10,4 +10,12 @@ router
   });
 })
 
+router
+.get('/chat', function (req, res, next) {
+  res.render('chat', 
+  { 
+    title: 'Chat'
+  });
+})
+
 module.exports = router;
