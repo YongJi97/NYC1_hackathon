@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDUoKMjgQbskgxkdWWlxNAaHp672Jq08Jg">
+       </script>
+       
+<script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+
+
+
+
+<script src="Volunteer.js"></script>
+        <link rel="stylesheet" type="text/css" href="Volunteer.css">
+
+ 
+ <title>Venue Finder</title>
+</head>
+<body>  
+    <header> <% include partials/header %> </header> 
+
+
+    <h1 class = "head">Venue Finder</h1>
+  <h2 class  ="head">Powered by Foursquare and Google Maps</h2>
+  <div id = "div">
+  <input placeholder = "Type your address" id ="ip"> </input>
+ 
+  <input placeholder = "Type search here" id ="q"> </input>
+
+  <button id = "submit">Search</button>
+  <button id = "clear">Clear</button>
+  </div>
+  <!--<div>
+<strong>Mode of Travel: </strong>
+<select id="mode" onchange="calcRoute()">
+  <option value="DRIVING">Driving</option>
+  <option value="WALKING">Walking</option>
+  <option value="BICYCLING">Bicycling</option>
+  <option value="TRANSIT">Transit</option>
+</select>
+</div>
+-->
+ 
+ 
+  
+ <ul id = "print"></ul>
+ 
+  <div id="map-canvas" ></div>
+  
+  <% include partials/footer %>
+
+</body>
+</html>
+
