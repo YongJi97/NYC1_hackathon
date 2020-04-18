@@ -39,8 +39,6 @@
                 <h1>List of active users</h1>
                 <ul id="users">
                 </ul>
-            </div>
-            <div class="col-sm">
                 <input type="checkbox" id="soundcheck" name="vehicle1" value="pika">
                 <label for="vehicle1"> Enable chat notification </label><br>
             </div>
@@ -97,10 +95,10 @@
 
             // append text if someone is online
             socket.on('is_online', function(username) {
-                $('#messages').append($('<li>').html('<b>'+username+'</b>' + " joined the chat..."));
+                $('#messages').append($('<li>').html("<b style='color:" +"';>"+username+'</b>' + " joined the chat..."));
             });
             socket.on('is_offline', function(username) {
-                $('#messages').append($('<li>').html(username + " left the chat..."));
+                $('#messages').append($('<li>').html("<b style='color:" +"';>"+username+'</b>' + " left the chat..."));
             });
             socket.on('update_users', function(userArray) {
                 console.log(userArray)
@@ -113,9 +111,18 @@
 
             // ask username
             var username = prompt('Please tell me your name');
+            while(true){
+                if(username.length > 0){
+                    break;
+                }
+                username = prompt('Please enter valid user name')
+            }
             var userColor = prompt('Type in a color.');
             var secretPassword = prompt('Enter in secret password if you know it');
             var payload = [username, userColor, secretPassword];
+            if(username.trim() === ""){
+                username = "anonymous"
+            }
             // socket.emit('user_color', userColor);
             socket.emit('username', payload);
     </script>

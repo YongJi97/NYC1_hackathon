@@ -38,6 +38,7 @@ fs.readdirSync(route_path).forEach(function(file) {
 
 let activeUsers = [];
 let userColors = {};
+let anonymousUsers = 0;
 
 io.on("connection", function(socket) {
   T.get(
