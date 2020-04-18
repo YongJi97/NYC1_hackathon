@@ -7,6 +7,7 @@ https://codenation-nyc1-covid19.herokuapp.com
     * Upoma Bhuiyan
     * YongJi Chen
     * Darren Blair
+    * Mia McDuffie
 
 ### What is the name of your project?    
 
