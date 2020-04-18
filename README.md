@@ -1,6 +1,6 @@
 # Code Nation Hackathon: README Template
 
-https://codenation-nyc1-covid19.herokuapp.com/chat
+https://codenation-nyc1-covid19.herokuapp.com
 
 ### Your Project Members
     * Earl Smith
