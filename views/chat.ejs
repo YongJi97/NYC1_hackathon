@@ -21,17 +21,27 @@
   </head>
   <body>
     <header> <% include partials/header %> </header>
-    <div class="row">
-        <div class="col-sm">
-            <ul id="messages"></ul>
-            <form action="/chat" method="POST" id="chatForm">
-              <input id="txt" autocomplete="off" autofocus="on" oninput="isTyping()" placeholder="type your message here..." /><button>Send</button>
-            </form>        </div>
-        <div class="col-sm">
-            <h1>List of active users</h1>
-            <ul id="users">
-
-            </ul>
+    <div class="">
+        <div class="row">
+            <div class="col-sm" id="messagediv" style="height: 800px; overflow: auto;">
+                <div class="row">
+                    <div class="col-sm">
+                        <ul id="messages"></ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm">
+                <h1>List of active users</h1>
+                <ul id="users">
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm">
+                <form action="/chat" method="POST" id="chatForm">
+                    <input id="txt" autocomplete="off" autofocus="on" oninput="isTyping()" placeholder="type your message here..." /><button>Send</button>
+                </form> 
+            </div>
         </div>
     </div>
 
@@ -54,6 +64,8 @@
             // append the chat text message
             socket.on('chat_message', function(msg){
                 $('#messages').append($('<li>').html(msg));
+                var element = document.getElementById("messagediv");
+                element.scrollTop = element.scrollHeight;            
             });
 
             // append text if someone is online
