@@ -1,5 +1,5 @@
 # Code Nation Hackathon: README Template
-
+Check out our website at:
 https://codenation-nyc1-covid19.herokuapp.com
 
 ### Your Project Members
