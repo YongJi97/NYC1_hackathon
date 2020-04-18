@@ -14,11 +14,11 @@ router.get("/chat", function(req, res, next) {
   });
 });
 
-router.get("/donation", function(req, res, next) {
-  res.render("donation", {
-    title: "donation"
-  });
-});
+// router.get("/donation", function(req, res, next) {
+//   res.render("donation", {
+//     title: "donation"
+//   });
+// });
 
 // router
 // .get('/volunteer', function (req, res, next) {
