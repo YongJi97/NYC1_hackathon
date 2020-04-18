@@ -63,7 +63,7 @@
 
             // append the chat text message
             socket.on('chat_message', function(msg){
-                $('#messages').append($('<li>').html(msg));
+                $('#messages').append($('<li>').html(msg).attr('id','fakeUser'));
                 var element = document.getElementById("messagediv");
                 element.scrollTop = element.scrollHeight;            
             });
@@ -86,7 +86,10 @@
 
             // ask username
             var username = prompt('Please tell me your name');
-            socket.emit('username', username);
+            var userColor = prompt('Type in a color.');
+            var payload = [username, userColor];
+            // socket.emit('user_color', userColor);
+            socket.emit('username', payload);
     </script>
   </body>
 </html>

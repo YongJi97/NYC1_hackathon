@@ -34,6 +34,7 @@ fs.readdirSync(route_path).forEach(function(file) {
 });
 
 let activeUsers = [];
+let userColors = {};
 
 io.on("connection", function(socket) {
   T.get(
@@ -78,8 +79,10 @@ io.on("connection", function(socket) {
 
   //socketio code
   socket.on('username', function(username) {
-    socket.username = username;
+    socket.username = username[0];
+    socket.userColor = username[1];
     activeUsers.push(socket.username)
+    userColors[socket.username] = socket.userColor;
     console.log(activeUsers)
     io.emit('is_online', socket.username);
     io.emit('update_users', activeUsers);
@@ -96,9 +99,12 @@ io.on("connection", function(socket) {
   })
 
   socket.on('chat_message', function(message) {
-      io.emit('chat_message', '<strong>' + socket.username + '</strong>: ' + message);
+      io.emit('chat_message', "<strong style='color:" + socket.userColor + ";'>" + socket.username + '</strong>: ' + message);
   });
-  
+
+  // socket.on('user_color', function(message) {
+  //   io.emit('chat_message', '<strong>' + socket.username + '</strong>: ' + message);
+  // });
 
 
 });
