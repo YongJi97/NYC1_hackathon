@@ -1,6 +1,6 @@
 # Code Nation Hackathon: README Template
 
-Edit the README to answer the following questions before you submit your project.
+https://codenation-nyc1-covid19.herokuapp.com/chat
 
 ### Your Project Members
     * Earl Smith
