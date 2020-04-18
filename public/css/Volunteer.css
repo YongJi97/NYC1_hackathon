@@ -1,0 +1,110 @@
+body{
+ 
+background-color: #FFFFFF  
+}
+
+.head{
+ 
+  text-align:center;
+  color: #000000;
+}
+
+@keyframes button{
+  from{background:#FFFFFF;}
+  to{background:#89cff0;}
+ 
+ 
+}
+
+
+button{
+  background:#89cff0;
+  color:white
+ 
+}
+
+button:hover{
+    animation-name: button;
+    animation-duration: 1.5s;
+    animation-iteration-count:infinite;
+    animation-direction: alternate;
+ 
+  color:white
+}   
+
+/*@keyframes background {
+    from {background-color:#990000;}
+    to {background-color: orange}
+}
+*/
+/* The element to apply the animation to */
+
+/*body {
+   
+    background-color: #990000;
+    animation-name: background;
+    animation-duration: 7s;
+    animation-iteration-count:infinite;
+    animation-direction: alternate;
+}
+*/
+#div{
+ position: fixed;
+ margin-left: 25vw;
+}
+#print{
+ position: fixed;
+ margin-left: 25vw;
+ margin-top:20px;
+ 
+}
+#map-canvas {
+  position: fixed;
+  top: 40vh;
+  width:50vw;
+  height:500px;
+  margin-left: 25vw;
+  margin-top: -150px;
+}
+
+
+.search0:hover {
+ 
+  color:white;
+}
+.search1:hover {
+ 
+  color:white;
+}
+.search2:hover {
+ 
+  color:white;
+}
+.search3:hover {
+ 
+  color:white;
+}
+.search4:hover {
+ 
+  color:white;
+}
+.search5:hover {
+ 
+  color:white;
+}
+.search6:hover {
+ 
+  color:white;
+}
+.search7:hover {
+ 
+  color:white;
+}
+.search8:hover {
+ 
+  color:white;
+}
+.search9:hover {
+ 
+  color:white;
+}
