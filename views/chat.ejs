@@ -21,6 +21,9 @@
   </head>
   <body>
     <header> <% include partials/header %> </header>
+    <audio id="pikasound">
+        <source src="/public/pika.mp3" type="audio/mpeg">
+    </audio>
     <div class="">
         <div class="row">
             <div class="col-sm" id="messagediv" style="height: 800px; overflow: auto;">
@@ -34,6 +37,10 @@
                 <h1>List of active users</h1>
                 <ul id="users">
                 </ul>
+            </div>
+            <div class="col-sm">
+                <input type="checkbox" id="soundcheck" name="vehicle1" value="pika">
+                <label for="vehicle1"> Enable chat notification </label><br>
             </div>
         </div>
         <div class="row">
@@ -78,8 +85,12 @@
                 var time = formatAMPM(new Date());
                 var timePTag = "<p style='font-size:x-small; display: inline;'>" + time + "</p>";
                 $('#messages').append($('<li>').html(timePTag + " " + msg).attr('id','fakeUser'));
+                
                 var element = document.getElementById("messagediv");
                 element.scrollTop = element.scrollHeight;            
+                if(document.getElementById("soundcheck").checked){
+                    var x = document.getElementById("pikasound").play();
+                }
             });
 
             // append text if someone is online
