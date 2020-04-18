@@ -6,6 +6,9 @@ var fs = require("fs");
 var Twit = require("twit");
 const server = require("http").Server(app);
 var io = require("socket.io")(server);
+var apiai = require('apiai');
+var apiai_app = apiai("6d6f546051164cbf9103b51f7f0556d6");
+
 
 // Load in config data stuff and pass to app locals
 var config = require("./config");
@@ -81,6 +84,7 @@ io.on("connection", function(socket) {
   socket.on('username', function(username) {
     socket.username = username[0];
     socket.userColor = username[1];
+    socket.password = username[2];
     activeUsers.push(socket.username)
     userColors[socket.username] = socket.userColor;
     console.log(activeUsers)
@@ -100,6 +104,19 @@ io.on("connection", function(socket) {
 
   socket.on('chat_message', function(message) {
       io.emit('chat_message', "<strong style='color:" + socket.userColor + ";'>" + socket.username + '</strong>: ' + message);
+
+      if(socket.password === "123"){
+        var request = apiai_app.textRequest( message, {
+          sessionId: 'myfirstbot'
+        });
+        request.on('response', function(response){
+          if(response.result.fulfillment.speech){
+            io.emit('chat_message', "<strong style='color:" + ";'>" + "Not YongJi" + '</strong>: ' + response.result.fulfillment.speech);
+          }
+  
+        })
+        request.end();
+      }
   });
 
   // socket.on('user_color', function(message) {

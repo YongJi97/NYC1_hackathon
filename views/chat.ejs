@@ -48,8 +48,8 @@
     <script>
             let herokuUrl = 'https://codenation-nyc1-covid19.herokuapp.com/';
             let localUrl = 'http://localhost:3000';
-            var socket = io.connect(herokuUrl);
             // var socket = io.connect(localUrl);
+            var socket = io.connect(herokuUrl);
 
             function formatAMPM(date) {
                 var hours = date.getHours();
@@ -101,7 +101,8 @@
             // ask username
             var username = prompt('Please tell me your name');
             var userColor = prompt('Type in a color.');
-            var payload = [username, userColor];
+            var secretPassword = prompt('Enter in secret password if you know it');
+            var payload = [username, userColor, secretPassword];
             // socket.emit('user_color', userColor);
             socket.emit('username', payload);
     </script>

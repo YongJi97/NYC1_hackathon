@@ -18,4 +18,20 @@ router
   });
 })
 
+// router
+// .get('/donation', function (req, res, next) {
+//   res.render('donation', 
+//   { 
+//     title: 'donation'
+//   });
+// })
+
+// router
+// .get('/volunteer', function (req, res, next) {
+//   res.render('volunteer', 
+//   { 
+//     title: 'volunteer'
+//   });
+// })
+
 module.exports = router;
