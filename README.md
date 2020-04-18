@@ -10,11 +10,7 @@ http://reachoutglobal.herokuapp.com/
     * Mia McDuffie
 
 ### What is the name of your project?    
-<<<<<<< HEAD
-Reach Out Go Global!
-=======
 Reach Out Global!
->>>>>>> 016f5d54bffee5af0bc73059d7d48f36b63963bc
 ### What does this project do?
 An app that connects people to various resources and unique people. 
 ### Who did you design this project for?
