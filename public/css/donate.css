@@ -1,0 +1,51 @@
+
+
+.img{
+    opacity: .5;
+    height:750px
+}
+
+
+.jumbotron {
+    
+    margin-top:50px;
+    
+        
+}
+
+#caru{
+    background-color:grey;
+    
+}
+
+#my{
+    background-size: cover;
+    background-repeat: no-repeat;
+     background-attachment: fixed;
+   
+    height:600px;
+    opacity:.7;
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, .85), rgba(0, 0, 0, .85)), url(https://specials-images.forbesimg.com/imageserve/5e6905ed7d6f2600068f367d/960x0.jpg?fit=scale); 
+     
+   
+}
+
+#insi{
+    font-weight: bold;
+    font-size:75px;
+    color:white;
+    text-align: center;
+}
+
+#content{
+    
+    font-size:50px;
+    color:white;
+    
+    
+}
+
+#don{
+    
+    float:right;
+}
