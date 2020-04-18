@@ -11,6 +11,9 @@
         #messages { list-style-type: none; margin: 0; padding: 0; }
         #messages li { padding: 5px 10px; }
         #messages li:nth-child(odd) { background: #eee; }
+        #users {
+            list-style: none;
+        }
     </style>
     <script src="../../socket.io/socket.io.js"></script>
     <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
@@ -18,15 +21,25 @@
   </head>
   <body>
     <header> <% include partials/header %> </header>
+    <div class="row">
+        <div class="col-sm">
+            <ul id="messages"></ul>
+            <form action="/chat" method="POST" id="chatForm">
+              <input id="txt" autocomplete="off" autofocus="on" oninput="isTyping()" placeholder="type your message here..." /><button>Send</button>
+            </form>        </div>
+        <div class="col-sm">
+            <h1>List of active users</h1>
+            <ul id="users">
 
-    <ul id="messages"></ul>
-    <form action="/chat" method="POST" id="chatForm">
-      <input id="txt" autocomplete="off" autofocus="on" oninput="isTyping()" placeholder="type your message here..." /><button>Send</button>
-    </form>
+            </ul>
+        </div>
+    </div>
+
     <script>
             let herokuUrl = 'https://codenation-nyc1-covid19.herokuapp.com/';
             let localUrl = 'http://localhost:3000';
             var socket = io.connect(herokuUrl);
+            // var socket = io.connect(localUrl);
 
             // submit text message without reload/refresh the page
             $('form').submit(function(e){
@@ -45,13 +58,23 @@
 
             // append text if someone is online
             socket.on('is_online', function(username) {
-                $('#messages').append($('<li>').html(username));
+                $('#messages').append($('<li>').html('<b>'+username+'</b>' + " joined the chat..."));
+            });
+            socket.on('is_offline', function(username) {
+                $('#messages').append($('<li>').html(username + " left the chat..."));
+            });
+            socket.on('update_users', function(userArray) {
+                console.log(userArray)
+                $('#users').empty();
+                for(let i = 0; i < userArray.length; i++){
+                    $('#users').append($('<li>').html('🟢 ' + userArray[i]));
+                }
+
             });
 
             // ask username
             var username = prompt('Please tell me your name');
             socket.emit('username', username);
-
     </script>
   </body>
 </html>

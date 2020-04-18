@@ -33,6 +33,8 @@ fs.readdirSync(route_path).forEach(function(file) {
   app.use("/", route);
 });
 
+let activeUsers = [];
+
 io.on("connection", function(socket) {
   T.get(
     "search/tweets",
@@ -77,16 +79,26 @@ io.on("connection", function(socket) {
   //socketio code
   socket.on('username', function(username) {
     socket.username = username;
-    io.emit('is_online', '🔵 <i>' + socket.username + ' joined the chat..</i>');
+    activeUsers.push(socket.username)
+    console.log(activeUsers)
+    io.emit('is_online', socket.username);
+    io.emit('update_users', activeUsers);
   });
 
   socket.on('disconnect', function(username) {
-      io.emit('is_online', '🔴 <i>' + socket.username + ' left the chat..</i>');
+    const index = activeUsers.indexOf(socket.username);
+    if (index > -1) {
+      activeUsers.splice(index, 1);
+    }
+    console.log(activeUsers)
+    io.emit('is_offline', socket.username);
+    io.emit('update_users', activeUsers);
   })
 
   socket.on('chat_message', function(message) {
       io.emit('chat_message', '<strong>' + socket.username + '</strong>: ' + message);
   });
+  
 
 
 });
