@@ -51,6 +51,18 @@
             var socket = io.connect(herokuUrl);
             // var socket = io.connect(localUrl);
 
+            function formatAMPM(date) {
+                var hours = date.getHours();
+                var minutes = date.getMinutes();
+                var seconds = date.getSeconds();
+                var ampm = hours >= 12 ? 'PM' : 'PM';
+                hours = hours % 12;
+                hours = hours ? hours : 12; // the hour '0' should be '12'
+                minutes = minutes < 10 ? '0'+minutes : minutes;
+                var strTime = hours + ':' + minutes + ':' + seconds  + ampm;
+                return strTime;
+            }
+
             // submit text message without reload/refresh the page
             $('form').submit(function(e){
                 e.preventDefault(); // prevents page reloading
@@ -63,7 +75,9 @@
 
             // append the chat text message
             socket.on('chat_message', function(msg){
-                $('#messages').append($('<li>').html(msg).attr('id','fakeUser'));
+                var time = formatAMPM(new Date());
+                var timePTag = "<p style='font-size:x-small; display: inline;'>" + time + "</p>";
+                $('#messages').append($('<li>').html(timePTag + " " + msg).attr('id','fakeUser'));
                 var element = document.getElementById("messagediv");
                 element.scrollTop = element.scrollHeight;            
             });
