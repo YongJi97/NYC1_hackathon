@@ -16,7 +16,7 @@ An app that connects people to various resources and unique people.
 ### Who did you design this project for?
 This website is for everyone. This is a great resource for anyone stressed out by COVID-19. 
 ### What was your inspiration for this project?
-We were inspired by the people who are struggling becasue of COVID-19. We wanted to connect these people with vital resources and other people.
+We were inspired by the people who are struggling because of COVID-19. We wanted to connect these people with vital resources and other people.
 ### What challenges did you run into?
 Our main difficulty was making the nav-bar and footer consistent throughout all of the pages.  
 ### What accomplishments are you most proud of?
