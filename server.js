@@ -89,10 +89,10 @@ io.on("connection", function(socket) {
     const index = activeUsers.indexOf(socket.username);
     if (index > -1) {
       activeUsers.splice(index, 1);
+      console.log(activeUsers)
+      io.emit('is_offline', socket.username);
+      io.emit('update_users', activeUsers);
     }
-    console.log(activeUsers)
-    io.emit('is_offline', socket.username);
-    io.emit('update_users', activeUsers);
   })
 
   socket.on('chat_message', function(message) {
