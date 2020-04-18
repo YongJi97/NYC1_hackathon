@@ -20,12 +20,11 @@ router.get("/chat", function(req, res, next) {
 //   });
 // });
 
-// router
-// .get('/volunteer', function (req, res, next) {
-//   res.render('volunteer',
-//   {
-//     title: 'volunteer'
-//   });
-// })
+router.get('/volunteer', function (req, res, next) {
+  res.render('volunteer',
+  {
+    title: 'volunteer'
+  });
+})
 
 module.exports = router;
