@@ -56,7 +56,7 @@
         <div class="row">
             <div class="col-sm">
                 <form action="/chat" method="POST" id="chatForm">
-                    <input id="txt" autocomplete="off" autofocus="on" oninput="isTyping()" placeholder="type your message here..." /><button>Send</button>
+                    <input id="txt" autocomplete="off" autofocus="on" oninput="" placeholder="type your message here..." /><button>Send</button>
                 </form> 
             </div>
         </div>
@@ -110,6 +110,8 @@
                 $('#messages').append($('<li>').html(timePTag + " <b style='color:" +"';>"+username+'</b>' + " joined the chat..."));
             });
             socket.on('is_offline', function(username) {
+                var time = formatAMPM(new Date());
+                var timePTag = "<p style='font-size:x-small; display: inline;'>" + time + "</p>";
                 $('#messages').append($('<li>').html(timePTag + " <b style='color:" +"';>"+username+'</b>' + " left the chat..."));
             });
             socket.on('update_users', function(userArray) {
@@ -122,6 +124,7 @@
             socket.on('update_inactiveUSers', function(userArray) {
                 console.log(userArray)
                 var uniqueItems = [...new Set(userArray)]
+                console.log(uniqueItems)
                 $('#inactive-users').empty();
                 for(let i = 0; i < userArray.length; i++){
                     $('#inactive-users').append($('<li>').html('🔴 ' + uniqueItems[i]));
