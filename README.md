@@ -18,8 +18,7 @@ This website is for everyone. This is a great resource for anyone stressed out b
 ### What was your inspiration for this project?
 We were inspired by the people who are struggling because of COVID-19. We wanted to connect these people with vital resources and other people.
 ### What challenges did you run into?
-   * One difficulty was making the nav-bar and footer consistent throughout all of the pages.
-   * We solved this by using a templating engine called EJS.
+   * One difficulty was making the nav-bar and footer consistent throughout all of the pages. We solved this by using a templating engine called EJS.
    * The latest info page required scraping data from other websites so that required a learning curve.
    * The chat system required some researching into socket programming.
 ### What accomplishments are you most proud of?
