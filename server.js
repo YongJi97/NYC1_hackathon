@@ -90,8 +90,13 @@ io.on("connection", function(socket) {
     activeUsers.push(socket.username)
     userColors[socket.username] = socket.userColor;
     console.log(activeUsers)
+    const index = inactiveUsers.indexOf(socket.username);
+    if(index > -1){
+      inactiveUsers.splice(index, 1);
+    }
     io.emit('is_online', socket.username);
     io.emit('update_users', activeUsers);
+    io.emit('update_inactiveUSers', inactiveUsers);
   });
 
   socket.on('disconnect', function(username) {
@@ -99,7 +104,9 @@ io.on("connection", function(socket) {
     if (index > -1) {
       activeUsers.splice(index, 1);
       console.log(activeUsers)
-      inactiveUsers.push(socket.username);
+      if(!activeUsers.includes(socket.username)){
+        inactiveUsers.push(socket.username);
+      }
       io.emit('is_offline', socket.username);
       io.emit('update_users', activeUsers);
       io.emit('update_inactiveUSers', inactiveUsers);

@@ -38,19 +38,23 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm">
-                <h1>Come talk to others</h1>
-                <h3>List of active users</h3>
-                <ul id="users">
-                </ul>
-                <input type="checkbox" id="soundcheck" name="vehicle1" value="pika">
-                <label for="vehicle1"> Enable chat notification </label><br>
-            </div>
-            <div class="col-sm">
-                <h1 style="visibility: hidden;">Come talk to others</h1>
-                <h3>List of inactive users</h3>
-                <ul id="inactive-users">
-                </ul>
+            <div class="col-sml">
+                <div class="row">
+                    <div class="col-sm">
+                        <h1>Come talk to others</h1>
+                        <h3>List of active users</h3>
+                        <ul id="users">
+                        </ul>
+                        <input type="checkbox" id="soundcheck" name="vehicle1" value="pika">
+                        <label for="vehicle1"> Enable chat notification </label><br>
+                    </div>
+                    <div class="col-sm">
+                        <h1 style="visibility: hidden;">Come talk to others</h1>
+                        <h3>List of inactive users</h3>
+                        <ul id="inactive-users">
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="row">
@@ -126,7 +130,7 @@
                 var uniqueItems = [...new Set(userArray)]
                 console.log(uniqueItems)
                 $('#inactive-users').empty();
-                for(let i = 0; i < userArray.length; i++){
+                for(let i = 0; i < uniqueItems.length; i++){
                     $('#inactive-users').append($('<li>').html('🔴 ' + uniqueItems[i]));
                 }
             });
