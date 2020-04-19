@@ -37,6 +37,7 @@ fs.readdirSync(route_path).forEach(function(file) {
 });
 
 let activeUsers = [];
+let inactiveUsers = [];
 let userColors = {};
 let anonymousUsers = 0;
 
@@ -98,8 +99,10 @@ io.on("connection", function(socket) {
     if (index > -1) {
       activeUsers.splice(index, 1);
       console.log(activeUsers)
+      inactiveUsers.push(socket.username);
       io.emit('is_offline', socket.username);
       io.emit('update_users', activeUsers);
+      io.emit('update_inactiveUSers', inactiveUsers);
     }
   })
 

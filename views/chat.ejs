@@ -43,6 +43,12 @@
                 <input type="checkbox" id="soundcheck" name="vehicle1" value="pika">
                 <label for="vehicle1"> Enable chat notification </label><br>
             </div>
+            <div class="col-sm">
+                <h1 style="visibility: hidden;">Come talk to others</h1>
+                <h3>List of inactive users</h3>
+                <ul id="inactive-users">
+                </ul>
+            </div>
         </div>
         <div class="row">
             <div class="col-sm">
@@ -96,10 +102,12 @@
 
             // append text if someone is online
             socket.on('is_online', function(username) {
-                $('#messages').append($('<li>').html("<b style='color:" +"';>"+username+'</b>' + " joined the chat..."));
+                var time = formatAMPM(new Date());
+                var timePTag = "<p style='font-size:x-small; display: inline;'>" + time + "</p>";
+                $('#messages').append($('<li>').html(timePTag + " <b style='color:" +"';>"+username+'</b>' + " joined the chat..."));
             });
             socket.on('is_offline', function(username) {
-                $('#messages').append($('<li>').html("<b style='color:" +"';>"+username+'</b>' + " left the chat..."));
+                $('#messages').append($('<li>').html(timePTag + " <b style='color:" +"';>"+username+'</b>' + " left the chat..."));
             });
             socket.on('update_users', function(userArray) {
                 console.log(userArray)
@@ -107,7 +115,14 @@
                 for(let i = 0; i < userArray.length; i++){
                     $('#users').append($('<li>').html('🟢 ' + userArray[i]));
                 }
-
+            });
+            socket.on('update_inactiveUSers', function(userArray) {
+                console.log(userArray)
+                var uniqueItems = [...new Set(userArray)]
+                $('#inactive-users').empty();
+                for(let i = 0; i < userArray.length; i++){
+                    $('#inactive-users').append($('<li>').html('🔴 ' + uniqueItems[i]));
+                }
             });
 
             // ask username
