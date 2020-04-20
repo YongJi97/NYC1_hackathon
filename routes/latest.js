@@ -48,15 +48,16 @@ async function scrapeRealtor() {
       info: $(elem).text()
     })
   });
+  console.log(data);
 
   for(let i = 0; i < data.length; i++){
-    if(data[i].info.trim() === "Total Confirmed Cases"){
+    if(data[i].info.trim().includes("Total Confirmed")){
       stats["totalConfirmed"] = data[i-1].info.trim();
     }
-    if(data[i].info.trim() === "Total Deceased"){
+    if(data[i].info.trim().includes("Deceased")){
       stats["totalDeceased"] = data[i-1].info.trim();
     }
-    if(data[i].info.trim() === "Total Tested"){
+    if(data[i].info.trim().includes("Active")){
       stats["totalTested"] = data[i-1].info.trim();
     }
     if(data[i].info.trim() === "Total Recovered"){
@@ -64,7 +65,7 @@ async function scrapeRealtor() {
     }
   }
 
-  // console.log(stats);
+  console.log(stats);
 }
 // const listener = server.listen(process.env.PORT, function() {
 //   console.log('Your app is listening on port ' + listener.address().port);
